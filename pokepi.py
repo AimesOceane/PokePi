@@ -2,7 +2,6 @@
 import logging
 import sys
 import argparse
-import json
 import jmespath
 import requests
 
@@ -36,8 +35,8 @@ def get_data(poke_args):
 
     # Creation d'une variable Args.pokemon et l'afficher en log
 
-    print(poke_args.pokemon)
-    f"poke_args {poke_args.pokemon}"
+    # print(poke_args.pokemon)
+    # f"poke_args {poke_args.pokemon}"
 
     # Verification connection API est disponible et recupere les données du pokemon choisit
 
@@ -88,14 +87,7 @@ def poke_exist(pokemon):
 
 def main(poke_args):
     pokemon = get_data(poke_args)
-    # poke_json = json.loads(pokemon.text)
-    # json.dumps(poke_json)
-    # logger.info("Avec Jmespath : %s", get_name_jmespath(poke_json))
-    # logger.info("En Python pur : %s", get_name(poke_json))
-    # with open("save_move_python.json", "w") as save_move:
-    #     json.dump(get_name(poke_json), save_move)
-    # with open("save_move_jmespath.json", "w") as save_move:
-    #     json.dump(get_name_jmespath(poke_json), save_move)
+    
     if not pokemon:
         logger.error("Le pokemon n'existe pas")
         sys.exit()
